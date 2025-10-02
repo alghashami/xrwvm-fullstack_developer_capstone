@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import JsonResponse
-#from .models import CarMake, CarModel
+from .models import CarMake, CarModel
 # Get an instance of a logger
 import logging
 logger = logging.getLogger(__name__)
@@ -37,7 +37,8 @@ def login_request(request):
             return redirect('djangoapp:index')
         else:
             messages.error(request, "Invalid username or password.")
-    return render(request, 'djangoapp/login.html')
+    # The path is now corrected to 'login.html'
+    return render(request, 'login.html')
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
@@ -57,20 +58,24 @@ def registration_request(request):
         else:
             messages.error(request, "Unsuccessful registration. Invalid information.")
     form = UserCreationForm()
-    return render(request, 'djangoapp/registration.html', {'form':form})
+    # The path is now corrected to 'registration.html'
+    return render(request, 'registration.html', {'form':form})
 
 
 def get_dealerships(request):
     # ... your existing get_dealerships view code ...
     context = {}
-    return render(request, 'djangoapp/index.html', context)
+    # The path is now corrected to 'index.html'
+    return render(request, 'index.html', context)
 
 def about(request):
     # ... your existing about view code ...
     context = {}
-    return render(request, 'djangoapp/about.html', context)
+    # The path is now corrected to 'about.html'
+    return render(request, 'about.html', context)
 
 def contact(request):
     # ... your existing contact view code ...
     context = {}
-    return render(request, 'djangoapp/contact.html', context)
+    # The path is now corrected to 'contact.html'
+    return render(request, 'contact.html', context)
